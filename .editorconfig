@@ -1,0 +1,21 @@
+# top-most EditorConfig file
+root = true
+
+[*]
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.cs]
+indent_style = tab
+indent_size = tab
+tab_width = 4
+dotnet_style_require_accessibility_modifiers = always:warning
+
+[*.{sln,csproj,config,csdef,cscfg}]
+indent_style = space
+indent_size = 2
+
+[*.{js,ts,css,html,cshtml,ascx,aspx,Master}]
+indent_style = space
+indent_size = 2

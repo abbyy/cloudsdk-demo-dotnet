@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abbyy.CloudSdk.Demo.Core", "Abbyy.CloudSdk.Demo.Core\Abbyy.CloudSdk.Demo.Core.csproj", "{647CE0D7-D497-4AD3-82A1-FBE5263D5C17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abbyy.CloudSdk.Demo.ConsoleApp", "Abbyy.CloudSdk.Demo.ConsoleApp\Abbyy.CloudSdk.Demo.ConsoleApp.csproj", "{A747132E-D522-42C9-BC7D-E445A499EC85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abbyy.CloudSdk.Demo.WindowsApp", "Abbyy.CloudSdk.Demo.WindowsApp\Abbyy.CloudSdk.Demo.WindowsApp.csproj", "{C20F6BBA-6747-40B9-AD4D-01A980178895}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2BB2E030-CEC9-4CDA-9E62-C065803156D8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Abbyy.CloudSdk.Demo.sln.licenseheader = Abbyy.CloudSdk.Demo.sln.licenseheader
+		LICENSE = LICENSE
+		README.MD = README.MD
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{9A8E7E8B-3083-4FA1-9F9D-C6E4037D998A}"
+	ProjectSection(SolutionItems) = preProject
+		Build\ConsoleAppFilesToSign.txt = Build\ConsoleAppFilesToSign.txt
+		Build\SignFiles.ps1 = Build\SignFiles.ps1
+		Build\WindowsAppFilesToSign.txt = Build\WindowsAppFilesToSign.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{647CE0D7-D497-4AD3-82A1-FBE5263D5C17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{647CE0D7-D497-4AD3-82A1-FBE5263D5C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{647CE0D7-D497-4AD3-82A1-FBE5263D5C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{647CE0D7-D497-4AD3-82A1-FBE5263D5C17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A747132E-D522-42C9-BC7D-E445A499EC85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A747132E-D522-42C9-BC7D-E445A499EC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A747132E-D522-42C9-BC7D-E445A499EC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A747132E-D522-42C9-BC7D-E445A499EC85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C20F6BBA-6747-40B9-AD4D-01A980178895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C20F6BBA-6747-40B9-AD4D-01A980178895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C20F6BBA-6747-40B9-AD4D-01A980178895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C20F6BBA-6747-40B9-AD4D-01A980178895}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C322072-E9AB-4362-88B4-8F6645F8736F}
+	EndGlobalSection
+EndGlobal
