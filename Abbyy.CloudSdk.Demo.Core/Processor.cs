@@ -403,7 +403,7 @@ namespace Abbyy.CloudSdk.Demo.Core
 
 						var path = Path.Combine(options.TargetPath, $"{options.FileName ?? "document"}.{url.Format.ToExtension()}");
 
-						using (var fileStream = File.OpenWrite(path))
+						using (var fileStream = File.Open(path, FileMode.Create, FileAccess.Write))
 						{
 							var resultStream = await httpClient
 								.GetStreamAsync(url.Url)
