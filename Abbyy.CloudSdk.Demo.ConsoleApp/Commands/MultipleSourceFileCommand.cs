@@ -14,7 +14,6 @@
 
 using System.ComponentModel.DataAnnotations;
 using Abbyy.CloudSdk.Demo.Core.Models;
-using Abbyy.CloudSdk.Sample.Models;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace Abbyy.CloudSdk.Demo.ConsoleApp.Commands

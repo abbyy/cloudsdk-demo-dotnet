@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using Abbyy.CloudSdk.Sample.Models;
+using Abbyy.CloudSdk.Demo.Core.Models;
 
 namespace Abbyy.CloudSdk.Demo.Core.Extensions
 {

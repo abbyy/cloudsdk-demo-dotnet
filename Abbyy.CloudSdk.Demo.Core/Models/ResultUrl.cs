@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-namespace Abbyy.CloudSdk.Sample.Models
+namespace Abbyy.CloudSdk.Demo.Core.Models
 {
 	internal sealed class ResultUrl
     {

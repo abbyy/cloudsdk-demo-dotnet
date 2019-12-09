@@ -14,7 +14,6 @@
 
 using System.Collections.Generic;
 using System.IO;
-using Abbyy.CloudSdk.Sample.Models;
 
 namespace Abbyy.CloudSdk.Demo.Core.Models
 {
