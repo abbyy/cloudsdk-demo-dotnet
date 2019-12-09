@@ -21,7 +21,6 @@ using System.Threading.Tasks;
 using Abbyy.CloudSdk.Demo.Core.EventArgs;
 using Abbyy.CloudSdk.Demo.Core.Extensions;
 using Abbyy.CloudSdk.Demo.Core.Models;
-using Abbyy.CloudSdk.Sample.Models;
 using Abbyy.CloudSdk.V2.Client;
 using Abbyy.CloudSdk.V2.Client.Models;
 using Abbyy.CloudSdk.V2.Client.Models.RequestParams;
