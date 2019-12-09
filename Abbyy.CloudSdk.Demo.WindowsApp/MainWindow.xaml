@@ -178,7 +178,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <RadioButton GroupName="flMode" IsChecked="True" Name="flModeText" >Text</RadioButton>
                                     <RadioButton GroupName="flMode" IsChecked="False" Name="flModeBarcode">Barcodes</RadioButton>
-                                    <RadioButton GroupName="flMode" IsChecked="False" Name="flModeCheckmark" >Checkmarks</RadioButton>
+                                    <RadioButton GroupName="flMode" IsChecked="False" Name="flModeCheckmark" >Square checkmarks</RadioButton>
                                 </StackPanel>
                             </GroupBox>
                         </StackPanel>

@@ -55,7 +55,10 @@ namespace Abbyy.CloudSdk.Demo.Core
 
 	    public static CheckmarkFieldProcessingParams GetCheckmarkFieldProcessingParams()
 	    {
-		    return new CheckmarkFieldProcessingParams();
+			return new CheckmarkFieldProcessingParams
+			{
+				CheckmarkType = CheckmarkType.Square,
+			};
 		}
 
 	    public static BarcodeFieldProcessingParams GetBarcodeFieldProcessingParams()
