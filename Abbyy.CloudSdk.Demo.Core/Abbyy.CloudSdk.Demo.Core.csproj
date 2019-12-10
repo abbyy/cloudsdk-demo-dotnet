@@ -50,6 +50,7 @@
     <Compile Include="Extensions\ExportFormatExtensions.cs" />
     <Compile Include="FieldLevelXmlReader.cs" />
     <Compile Include="IScope.cs" />
+    <Compile Include="Models\FieldRegion.cs" />
     <Compile Include="Models\Mode.cs" />
     <Compile Include="Extensions\ModeExtensions.cs" />
     <Compile Include="Models\Options.cs" />

@@ -18,7 +18,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Abbyy.CloudSdk.Sample.WindowsApp;
 
 namespace Abbyy.CloudSdk.Demo.WindowsApp
 {
@@ -26,7 +25,7 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp
 	{
 		public event EventHandler<RegionSelectedEventArgs> RegionSelected;
 
-		private string _sourceFile;
+		private string _sourceFilePath;
 		private Point _imageCaptureStart;
 
 		public ImageControl()
@@ -40,7 +39,15 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp
 			set
 			{
 				image.Source = new BitmapImage(new Uri(value));
-				_sourceFile = value;
+				_sourceFilePath = value;
+			}
+		}
+
+		public string SourceFilePath
+		{
+			get
+			{
+				return _sourceFilePath;
 			}
 		}
 
@@ -77,21 +84,7 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp
 			var newX = (visualLeft - imageOffset.X) * scaleX;
 			var newY = (visualTop - imageOffset.Y) * scaleY;
 
-			var src = (System.Drawing.Bitmap)System.Drawing.Image.FromFile(_sourceFile);
-			var target = new System.Drawing.Bitmap((int)newWidth, (int)newHeight);
-			target.SetResolution(src.HorizontalResolution, src.VerticalResolution);
-
-			using (var g = System.Drawing.Graphics.FromImage(target))
-			{
-				var rect = new System.Drawing.Rectangle((int)newX, (int)newY, (int)newWidth, (int)newHeight);
-				g.DrawImage(
-					src,
-					new System.Drawing.Rectangle(0, 0, target.Width, target.Height),
-					rect,
-					System.Drawing.GraphicsUnit.Pixel);
-			}
-
-			var ev = new RegionSelectedEventArgs(new Rect(newX, newY, newWidth, newHeight), target);
+			var ev = new RegionSelectedEventArgs(new Rect(newX, newY, newWidth, newHeight));
 			OnRegionSelected(ev);
 
 			selectBox.Visibility = Visibility.Hidden;

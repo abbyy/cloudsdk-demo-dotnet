@@ -35,6 +35,8 @@ namespace Abbyy.CloudSdk.Demo.Core.Models
 
 	    public string XmlSettingsPath { get; set; }
 
+		public FieldRegion Region { get; set; }
+
 	    public string FileName => Path.GetFileNameWithoutExtension(SourcePath);
 	}
 }

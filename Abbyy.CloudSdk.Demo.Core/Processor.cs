@@ -229,10 +229,10 @@ namespace Abbyy.CloudSdk.Demo.Core
 					var textParams = ProcessingParamsBuilder.GetTextFieldProcessingParams(options);
 					return _ocrClient.ProcessTextFieldAsync(textParams, fileStream, options.FileName);
 				case Mode.BarcodeField:
-					var barcodeParams = ProcessingParamsBuilder.GetBarcodeFieldProcessingParams();
+					var barcodeParams = ProcessingParamsBuilder.GetBarcodeFieldProcessingParams(options);
 					return _ocrClient.ProcessBarcodeFieldAsync(barcodeParams, fileStream, options.FileName);
 				case Mode.CheckmarkField:
-					var checkmarkParams = ProcessingParamsBuilder.GetCheckmarkFieldProcessingParams();
+					var checkmarkParams = ProcessingParamsBuilder.GetCheckmarkFieldProcessingParams(options);
 					return _ocrClient.ProcessCheckmarkFieldAsync(checkmarkParams, fileStream, options.FileName);
 				default:
 					throw new InvalidOperationException("Wrong operation");

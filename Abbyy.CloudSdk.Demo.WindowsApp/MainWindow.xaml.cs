@@ -30,7 +30,6 @@ using Abbyy.CloudSdk.Demo.WindowsApp.Models;
 using Abbyy.CloudSdk.V2.Client;
 using Abbyy.CloudSdk.V2.Client.Models;
 using Application = System.Windows.Application;
-using Image = System.Drawing.Image;
 
 namespace Abbyy.CloudSdk.Demo.WindowsApp
 {
@@ -123,16 +122,20 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp
 
 		private async void FieldSelected(object sender, RegionSelectedEventArgs e)
 		{
-			var tempFilePath = Path.GetTempFileName();
-			e.CroppedImage.Save(tempFilePath, System.Drawing.Imaging.ImageFormat.Tiff);
+			var imagePath = fieldLevelImage.SourceFilePath;
+			var rectangle = e.SelectedRectangle;
+			var left = (int)rectangle.Left;
+			var top = (int)rectangle.Top;
+			var right = (int)rectangle.Right;
+			var bottom = (int)rectangle.Bottom;
 
-			await AddFileTaskAsync(tempFilePath, e.CroppedImage);
+			await AddFileTaskAsync(imagePath, new FieldRegion(left, top, right, bottom));
 		}
 
-		private async Task AddFileTaskAsync(string filePath, Image sourceImage)
+		private async Task AddFileTaskAsync(string filePath, FieldRegion fieldRegion)
 		{
 			var outputDir = GetOutputDir();
-			var options = BuildOptions(filePath, outputDir);
+			var options = BuildOptions(filePath, outputDir, fieldRegion);
 			var exportFormats = options.OutputFormat.Split(',');
 
 			if (modeBcr.IsChecked == true)
@@ -144,7 +147,7 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp
 			}
 			else if (options.Mode.IsSingleFieldLevel())
 			{
-				await StartSingleFieldProcessing(sourceImage, options)
+				await StartSingleFieldProcessing(options)
 					.ConfigureAwait(false);
 			}
 			else
@@ -166,7 +169,7 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp
 			return outputDir;
 		}
 
-		private Options BuildOptions(string filePath, string outputDir)
+		private Options BuildOptions(string filePath, string outputDir, FieldRegion fieldRegion)
 		{
 			var mode = Mode.None;
 			
@@ -195,6 +198,7 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp
 				TargetPath = outputDir,
 				Language = GetLanguages(),
 				OutputFormat = GetOutputFormat(mode),
+				Region = fieldRegion,
 			};
 
 			return options;
@@ -217,14 +221,12 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp
 			return SafeInvokeProcessorCommands(_processor.ProcessPathAsync(options, task), task);
 		}
 
-		private Task StartSingleFieldProcessing(Image sourceImage, Options options)
+		private Task StartSingleFieldProcessing(Options options)
 		{
 			var task = new UserTask(options.SourcePath)
 			{
 				TaskStatus = "Uploading",
-				SourceIsTempFile = true,
 				IsFieldLevel = true,
-				SourceImage = sourceImage,
 				OutputFilePaths = new Dictionary<string, string>
 				{
 					["Xml"] = Path.Combine(options.TargetPath, $"{options.FileName}.xml"),
@@ -315,11 +317,6 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp
 			_sync.Post(x =>
 			{
 				var task = (UserTask)e.UserState;
-
-				if (task.SourceIsTempFile)
-				{
-					File.Delete(task.SourceFilePath);
-				}
 
 				if (e.Error != null)
 				{
