@@ -50,20 +50,28 @@ namespace Abbyy.CloudSdk.Demo.Core
 
 		public static TextFieldProcessingParams GetTextFieldProcessingParams(Options options)
 	    {
-		    return new TextFieldProcessingParams { Language = options.Language };
+			return new TextFieldProcessingParams
+			{
+				Language = options.Language,
+				Region = options.Region?.Format(),
+			};
 		}
 
-	    public static CheckmarkFieldProcessingParams GetCheckmarkFieldProcessingParams()
+	    public static CheckmarkFieldProcessingParams GetCheckmarkFieldProcessingParams(Options options)
 	    {
 			return new CheckmarkFieldProcessingParams
 			{
 				CheckmarkType = CheckmarkType.Square,
+				Region = options.Region?.Format(),
 			};
 		}
 
-	    public static BarcodeFieldProcessingParams GetBarcodeFieldProcessingParams()
+	    public static BarcodeFieldProcessingParams GetBarcodeFieldProcessingParams(Options options)
 	    {
-		    return new BarcodeFieldProcessingParams();
+			return new BarcodeFieldProcessingParams
+			{
+				Region = options.Region?.Format(),
+			};
 		}
 
 	    public static BusinessCardProcessingParams GetBusinessCardProcessingParams(Options options)

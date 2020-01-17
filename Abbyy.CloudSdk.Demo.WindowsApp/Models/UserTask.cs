@@ -27,7 +27,6 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp.Models
 			SourceFilePath = filePath;
 			TaskId = "<unknown>";
 			TaskStatus = "<initializing>";
-			SourceIsTempFile = false;
 		}
 
 		public UserTask(TaskInfo task)
@@ -39,11 +38,7 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp.Models
 			Description = task.Description;
 			RegistrationTime = task.RegistrationTime;
 			StatusChangeTime = task.StatusChangeTime;
-
-			SourceIsTempFile = false;
 		}
-
-		public bool SourceIsTempFile { get; set; }
 
 		public string SourceFilePath { get; set; }
 
@@ -129,12 +124,6 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp.Models
 			set { _recognizedText = value; NotifyPropertyChanged("RecognizedText"); }
 		}
 
-		public System.Drawing.Image SourceImage
-		{
-			get => _sourceImage;
-			set { _sourceImage = value; NotifyPropertyChanged("SourceImage"); }
-		}
-
 		public string ErrorMessage
 		{
 			get => _errorMessage;
@@ -152,8 +141,6 @@ namespace Abbyy.CloudSdk.Demo.WindowsApp.Models
 		private DateTime _statusChangeTime;
 
 		private string _recognizedText;
-		private System.Drawing.Image _sourceImage;
-
 		private string _errorMessage;
 	}
 }

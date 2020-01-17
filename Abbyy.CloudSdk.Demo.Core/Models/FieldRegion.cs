@@ -1,4 +1,4 @@
-// Copyright © 2019 ABBYY Production LLC
+﻿// Copyright © 2019 ABBYY Production LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,17 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System.Windows;
-
-namespace Abbyy.CloudSdk.Demo.WindowsApp
+namespace Abbyy.CloudSdk.Demo.Core.Models
 {
-	public class RegionSelectedEventArgs : System.EventArgs
+	public class FieldRegion
 	{
-		public RegionSelectedEventArgs(Rect rect)
+		public FieldRegion(int left, int top, int right, int bottom)
 		{
-			SelectedRectangle = rect;
+			_left = left;
+			_top = top;
+			_right = right;
+			_bottom = bottom;
 		}
 
-		public Rect SelectedRectangle { get; set; }
+		public string Format()
+		{
+			string formatted = $"{_left},{_top},{_right},{_bottom}";
+			return formatted;
+		}
+
+		private readonly int _left;
+		private readonly int _top;
+		private readonly int _right;
+		private readonly int _bottom;
 	}
 }
