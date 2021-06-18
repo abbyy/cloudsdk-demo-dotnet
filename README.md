@@ -25,7 +25,6 @@ Find the full API description in the [Documentation](https://www.ocrsdk.com/docu
 - Document conversion
   - convert image/PDF to searchable PDF, PDF/A and Microsoft Word, Excel, PowerPoint
 - Data extraction
-  - Receipt recognition
   - Barcode recognition
   - Business card recognition
   - ID recognition (MRZ)
